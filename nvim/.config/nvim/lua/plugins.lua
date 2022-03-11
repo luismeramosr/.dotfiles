@@ -44,20 +44,24 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  -- use "cohama/lexima.vim"
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "moll/vim-bbye"
+  use "windwp/nvim-ts-autotag" -- Autocloses tags like html or react jsx
+  use "moll/vim-bbye" -- Allows to close buffers without messing the layout
   use "akinsho/toggleterm.nvim" -- Terminal integration
 
   -- Colorschemes
   use "Shatur/neovim-ayu" -- Ayu colorscheme
 
-  -- cmp plugins
+  -- Completion plugins
+  -- use "neoclide/coc.nvim" -- Conquer of completion
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-  use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/cmp-nvim-lua" -- Completion for lua config
+  use { "tami5/lspsaga.nvim", branch='nvim6.0' }-- Popup completions
 
   -- LSP
   use "neovim/nvim-lspconfig" -- Enable lsp

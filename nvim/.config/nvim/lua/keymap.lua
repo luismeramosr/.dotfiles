@@ -20,8 +20,9 @@ vim.g.maplocalleader = " "
 
 -- Custom
 keymap("n", "<leader>w", ":w<CR>", opts) -- Save buffer
-keymap("n", "<leader>q", ":Bdelete<CR>", opts) -- Exit buffer
-keymap("n", "<leader>oc", ":e ~/AppData/Local/nvim<CR>", opts) -- Open neovim config folder
+keymap("n", "<C-w>", ":Bdelete<CR>", opts) -- Exit buffer
+keymap("n", "<leader>q", ":q<CR>", opts) -- Exit buffer
+keymap("n", "<leader>oc", ":e ~/.config/nvim<CR>", opts) -- Open neovim config folder
 -- keymap("n", "<leader>hr", ":lua reloadConfig<CR>", opts) -- Hot reload config
 
 -- Normal --
