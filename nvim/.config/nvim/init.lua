@@ -1,14 +1,16 @@
-require "options"
-require "keymap"
+require "core"
+require "core.options"
+
+vim.defer_fn(function()
+   require("core.utils").load_mappings()
+end, 0)
+
+-- setup packer + plugins
+require("core.packer").bootstrap()
 require "plugins"
-require "completion"
-require "colorscheme"
-require "lualine_conf"
-require "lsp"
-require "telescope"
-require "treesitter"
-require "nvim-tree_conf"
-require "comments"
-require "autopairs"
-require "bufferline_conf"
-require "toggleterm_conf"
+
+local user_conf, _ = pcall(require, "custom")
+
+if user_conf then
+   require "custom"
+end
