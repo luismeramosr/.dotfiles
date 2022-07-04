@@ -18,10 +18,10 @@ vim.diagnostic.config {
 }
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-   border = "single",
+   border = "rounded",
 })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-   border = "single",
+   border = "rounded",
 })
 
 -- suppress error messages from lang servers
@@ -42,6 +42,6 @@ local _default_opts = win.default_opts
 
 win.default_opts = function(options)
    local opts = _default_opts(options)
-   opts.border = "single"
+   opts.border = "rounded"
    return opts
 end

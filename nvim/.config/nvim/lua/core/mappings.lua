@@ -57,18 +57,25 @@ M.general = {
    },
 }
 
-M.bufferline = {
+M.tabufline = {
    n = {
       -- new buffer
       -- ["<S-b>"] = { "<cmd> enew <CR>", "烙 new buffer" },
 
       -- cycle through buffers
-      ["<S-l>"] = { "<cmd> BufferLineCycleNext <CR>", "  cycle next buffer" },
-      ["<S-h>"] = { "<cmd> BufferLineCyclePrev <CR>", "  cycle prev buffer" },
+      ["<S-l>"] = { "<cmd> Tbufnext <CR>", "  goto next buffer" },
+      ["<S-h>"] = { "<cmd> Tbufprev <CR> ", "  goto prev buffer" },
+
+      -- cycle through tabs
+      ["<leader>tp"] = { "<cmd> tabprevious <CR>", "  goto next tab" },
+      ["<leader>tn"] = { "<cmd> tabnext <CR> ", "  goto prev tab" },
 
       -- close buffer + hide terminal buffer
+      -- close buffer + hide terminal buffer
       ["<C-w>"] = {
-         "<cmd> :Bdelete!<CR>",
+         function()
+            require("core.utils").close_buffer()
+         end,
          "   close buffer",
       },
    },

@@ -15,6 +15,7 @@ require("base46").load_highlight "nvimtree"
 local options = {
    filters = {
       dotfiles = false,
+      exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
    },
    disable_netrw = true,
    hijack_netrw = true,
@@ -33,7 +34,6 @@ local options = {
      height = 30,
      hide_root_folder = false,
      side = "left",
-     auto_resize = true,
      mappings = {
        custom_only = false,
        list = {
@@ -44,11 +44,15 @@ local options = {
     },
     number = false,
     relativenumber = false,
+    adaptive_size = true,
    },
    git = {
       enable = false,
       ignore = true,
    },
+   filesystem_watchers = {
+      enable = true,
+    },
    actions = {
       open_file = {
          resize_window = true,
@@ -96,10 +100,6 @@ local options = {
       },
    },
   open_on_setup = false,
-  update_to_buf_dir = {
-    enable = true,
-    auto_open = true,
-  },
   diagnostics = {
     enable = true,
     icons = {
