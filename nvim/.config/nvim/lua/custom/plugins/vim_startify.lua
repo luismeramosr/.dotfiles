@@ -1,0 +1,9 @@
+vim.g.startify_bookmarks = {
+  "~/.config/nvim/lua/custom/",
+}
+
+vim.g.startify_lists = {
+  { type = 'sessions',  header = {"   Sessions"}       },
+  { type = 'dir',       header = {"   Current Working Directory ".. vim.fn.getcwd()} },
+  { type = 'bookmarks', header = {"   Bookmarks"}      },
+}

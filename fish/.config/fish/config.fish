@@ -1,6 +1,6 @@
 if status is-interactive
   # Commands to run in interactive sessions can go here
-  set --export JAVA_HOME /lib/jvm/java-11-openjdk;
+  set --export JAVA_HOME /lib/jvm/java-17-openjdk;
   set --export ANDROID $HOME/Android;
   set --export ANDROID_HOME $ANDROID/Sdk;
   set --export CHROME_EXECUTABLE /usr/bin/brave;

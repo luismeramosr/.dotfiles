@@ -10,16 +10,15 @@ g.theme_switcher_loaded = false
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
-opt.title = true
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
 -- Indenting
 opt.expandtab = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
+opt.tabstop = 4
+opt.softtabstop = 4
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
@@ -30,6 +29,7 @@ opt.mouse = "a"
 opt.number = true
 opt.numberwidth = 2
 opt.ruler = false
+opt.relativenumber = true
 
 -- disable nvim intro
 opt.shortmess:append "sI"
@@ -38,10 +38,12 @@ opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
+opt.guifont = "JetBrainsMono Nerd Font"
 opt.timeoutlen = 400
 opt.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
+opt.swapfile = false
 opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow

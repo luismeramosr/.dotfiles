@@ -1,9 +1,12 @@
+-- Table fields in default_config.lua
 local M = {}
 
-M.mappings = require("custom.mappings")
-
 M.ui = {
-  theme = "onenord"
+  theme = "chadracula",
 }
+
+M.options = require("custom.options")
+M.mappings = require("custom.mappings")
+M.plugins = require("custom.plugins")
 
 return M
