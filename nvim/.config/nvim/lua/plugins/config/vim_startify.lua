@@ -1,5 +1,5 @@
 vim.g.startify_bookmarks = {
-  "~/.config/nvim/lua/custom/",
+  "~/.config/nvim/",
 }
 
 vim.g.startify_lists = {
