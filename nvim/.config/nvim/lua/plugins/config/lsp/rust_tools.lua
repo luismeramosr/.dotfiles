@@ -1,6 +1,5 @@
 local rt = require("rust-tools")
 local lsp = require("plugins.config.lsp")
-local lspconfig = require("lspconfig")
 
 rt.setup({
   tools = {
@@ -31,31 +30,11 @@ rt.setup({
       -- The color of the hints
       highlight = "Comment",
     },
-    hover_actions = {
-      -- the border that is used for the hover window
-      -- see vim.api.nvim_open_win()
-      border = {
-        { "╭", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╮", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "╯", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╰", "FloatBorder" },
-        { "│", "FloatBorder" },
-      },
-      -- Maximal width of the hover window. Nil means no max.
-      max_width = nil,
-      -- Maximal height of the hover window. Nil means no max.
-      max_height = nil,
-      -- whether the hover action window gets automatically focused
-      -- default: false
-      auto_focus = false,
-    },
   },
   server = {
     standalone = false,
     on_attach = lsp.on_attach,
+    handlers = lsp.handlers,
     settings = {
       ["rust-analyzer"] = {
         cachePriming = {
@@ -65,7 +44,7 @@ rt.setup({
           enable = true
         },
         checkOnSave = {
-          command = "clippy"
+          command = "check"
         },
         cargo = {
           buildScripts = {

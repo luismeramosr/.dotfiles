@@ -15,10 +15,10 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap('<leader>r', vim.lsp.buf.rename, 'Rename')
-  nmap('J', "<cmd>Lspsaga code_action<CR>", 'Code action')
+  nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
+  nmap('J', vim.lsp.buf.code_action, 'Code action')
 
-  nmap('gd', vim.lsp.buf.definition, 'Go to definition')
+  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
@@ -27,7 +27,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -77,18 +77,37 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
+local border = {
+  { "╭", "FloatBorder" },
+  { "─",  "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│",  "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─",  "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│",  "FloatBorder" },
+}
+
+-- LSP settings (for overriding per client)
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+}
+
 mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
+      handlers = handlers
     }
   end,
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
+    severity_sort = true,
     signs = {
       severity_limit = "Hint",
     },
@@ -101,5 +120,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 local M = {}
 
 M.on_attach = on_attach
+M.handlers = handlers
 
 return M

@@ -23,7 +23,6 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -36,7 +35,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- { 'j-hui/fidget.nvim', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       { 'folke/neodev.nvim', config = function() require("plugins.config.neodev") end }
@@ -54,10 +53,18 @@ require('lazy').setup({
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
-    config = function()
-      require("plugins.config.gitsigns")
-    end
+    opts = {
+      -- See `:help gitsigns.txt`
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
   },
+
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -70,15 +77,10 @@ require('lazy').setup({
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
+    config = function()
+      require("plugins.config.lualine")
+    end
+    -- opts = require("plugins.config.lualine")
   },
 
   {
@@ -142,7 +144,6 @@ require('lazy').setup({
       require("plugins.config.nvim-tree")
     end
   },
-
   -- Custom plugins
   {
     -- Dashboard
@@ -151,7 +152,6 @@ require('lazy').setup({
       require("plugins.config.vim_startify")
     end,
   },
-
   {
     -- Rust tools
     "simrat39/rust-tools.nvim",
@@ -160,7 +160,6 @@ require('lazy').setup({
       require("plugins.config.lsp.rust_tools")
     end,
   },
-
   {
     "windwp/nvim-autopairs",
     opts = {
@@ -174,19 +173,39 @@ require('lazy').setup({
       require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
-
   {
-    "glepnir/lspsaga.nvim",
-    event = "LspAttach",
+    "hood/popui.nvim",
     config = function()
-      require("plugins.config.lspsaga")
-    end,
+      require("plugins.config.popui")
+    end
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = require("plugins.config.notify").opts,
+    config = function()
+      vim.notify = require("notify")
+    end
+  },
+  {
+    "mrded/nvim-lsp-notify",
     dependencies = {
-      {"nvim-tree/nvim-web-devicons"},
-      --Please make sure you install markdown and markdown_inline parser
-      {"nvim-treesitter/nvim-treesitter"}
+      "rcarriga/nvim-notify",
     },
-  }
+    config = function()
+      require('lsp-notify').setup({})
+    end
+  },
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    version = "v3.*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("plugins.config.bufferline")
+    end
+  },
+  { "famiu/bufdelete.nvim" },
+  { "moll/vim-bbye" },
 }, {})
 
 require("plugins.config.lsp")
