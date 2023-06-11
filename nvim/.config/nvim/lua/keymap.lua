@@ -44,14 +44,32 @@ kmap('n', '<C-j>', '<C-w>j', { desc = "Moves to the buffer on the bottom", silen
 kmap('n', '<C-k>', '<C-w>k', { desc = "Moves to the buffer on the top", silent = true })
 kmap('n', '<C-l>', '<C-w>l', { desc = "Moves to the buffer on the right", silent = true })
 
+------ SPLIT MOVEMENT ------
+kmap('n', '<leader>l', '<C-w>t<C-w>K', { desc = "Rotates the split clockwise", silent = true })
+kmap('n', '<leader>h', '<C-w>t<C-w>H', { desc = "Rotates the split counter-clockwise", silent = true })
+
+------ WINDOW RESIZING ------
+kmap('n', '<A-k>', '<C-w>+', { desc = "Increases split height", silent = true })
+kmap('n', '<A-j>', '<C-w>-', { desc = "Decreases split height", silent = true })
+kmap('n', '<A-l>', '<C-w>>', { desc = "Increases split width", silent = true })
+kmap('n', '<A-h>', '<C-w><', { desc = "Decreases split width", silent = true })
+
 ------ TABS NAVIGATION ------
 kmap('n', 'H', ":BufferLineCyclePrev<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 kmap('n', 'L', ":BufferLineCycleNext<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 
-kmap('n', '<leader>q', ':q<CR>', { desc = "Closes the current windo", silent = true })
+kmap('n', '<leader>q', ':q<CR>', { desc = "Closes the current window", silent = true })
 kmap('n', '<leader>f', ':Format<CR>', { desc = "Formats the current buffer", silent = true })
 kmap('n', '<leader>m', ':Startify<CR>', { desc = "Opens the startify dashboard", silent = true })
 kmap('n', '<C-w>', ":Bdelete<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 
+------ TERMINAL MAPS ------
+kmap('t', 'jk', '<C-\\><C-N>', { desc = "Scapes when pressing jk in terminal mode", silent = true })
+kmap('t', '<C-h>', '<C-\\><C-N><C-w>h', { desc = "Moves to the buffer on the left", silent = true })
+kmap('t', '<C-j>', '<C-\\><C-N><C-w>j', { desc = "Moves to the buffer on the bottom", silent = true })
+kmap('t', '<C-k>', '<C-\\><C-N><C-w>k', { desc = "Moves to the buffer on the top", silent = true })
+kmap('t', '<C-l>', '<C-\\><C-N><C-w>l', { desc = "Moves to the buffer on the right", silent = true })
 
-
+kmap('n', '<C-t>', function ()
+  require("plugins.custom.toggleterm").toggleterm()
+end, { desc = "Toggles the terminal view" })
