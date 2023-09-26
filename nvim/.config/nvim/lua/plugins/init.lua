@@ -34,7 +34,7 @@ require("lazy").setup({
 
 			-- Useful status updates for LSP
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-			{ 'j-hui/fidget.nvim', opts = {} },
+			{ 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
 
 			-- Additional lua configuration, makes nvim stuff amazing!
 			{
@@ -199,6 +199,20 @@ require("lazy").setup({
 		end,
 	},
 	"moll/vim-bbye",
+	-- {
+	-- 	"dreamsofcode-io/ChatGPT.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim"
+	-- 	},
+	-- 	config = function()
+	-- 		require("chatgpt").setup({
+	-- 			async_api_key_cmd = "pass show api/tokens/openai",
+	-- 		})
+	-- 	end
+	-- },
 }, {})
 
 require("plugins.config.lsp")

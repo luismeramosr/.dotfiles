@@ -49,3 +49,5 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.o.hidden = true
+
+vim.g.neovide_transparency = 0.9
