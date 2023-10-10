@@ -70,6 +70,9 @@ kmap('t', '<C-j>', '<C-\\><C-N><C-w>j', { desc = "Moves to the buffer on the bot
 kmap('t', '<C-k>', '<C-\\><C-N><C-w>k', { desc = "Moves to the buffer on the top", silent = true })
 kmap('t', '<C-l>', '<C-\\><C-N><C-w>l', { desc = "Moves to the buffer on the right", silent = true })
 
-kmap('n', '<C-t>', function ()
-  require("plugins.custom.toggleterm").toggleterm()
-end, { desc = "Toggles the terminal view" })
+kmap('n', '<C-t>', ':ToggleTerm direction=float name=Terminal<CR>', { desc = "Toggles the terminal view" })
+
+kmap('n', '<C-c><C-d>', function ()
+    local api = require("nvim-tree.api")
+    api.tree.change_root_to_node()
+end, { desc = "Changes the current root node", silent = true })
