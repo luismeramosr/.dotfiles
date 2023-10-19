@@ -1,0 +1,7 @@
+(defwidget system_tray []
+  (box :orientation "horizontal"
+       :halign "end"
+       :class "container system_tray"
+    "System Tray"
+  )
+)

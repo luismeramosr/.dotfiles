@@ -1,0 +1,6 @@
+(defwidget middle [class]
+  (box :orientation "horizontal"
+       :class class
+    (clock)
+  )
+)

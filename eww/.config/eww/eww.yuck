@@ -1,13 +1,36 @@
-(defwindow topleftbar
-           :monitor 0
-           :class topleftbar
-           :geometry (geometry :x "10px"
-                               :y "10px"
-                               :width "10%"
-                               :height "30px"
-                               :anchor "top left")
-           :stacking "fg"
-           :exclusive true
-           :windowtype "dock"
-           :wm-ignore false
-  "top left bar")
+;; Variables
+(defpoll time :interval "1s"
+              :initial "initial-value"  ; optional, defaults to poll at startup
+              :run-while time-visible   ; optional, defaults to 'true'
+  `date +%H:%M`)
+
+;; Layout
+(include "./layout/left.yuck")
+(include "./layout/middle.yuck")
+(include "./layout/right.yuck")
+
+;; Widgets
+(include "./widgets/workspaces.yuck")
+(include "./widgets/clock.yuck")
+(include "./widgets/music_player.yuck")
+(include "./widgets/system_tray.yuck")
+
+(defwindow topbar
+    :monitor 0
+    :class topbar
+    :geometry (geometry :x "0px"
+                        :y "0px"
+                        :width "100%"
+                        :height "26px"
+                        :anchor "top center")
+    :stacking "fg"
+    :exclusive true
+    :windowtype "dock"
+    :wm-ignore false
+    (centerbox :orientation "horizontal" 
+               :class "topbar_container"
+      (left :class "left")
+      (middle :class "middle")
+      (right :class "right")
+    )
+)

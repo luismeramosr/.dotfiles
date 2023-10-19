@@ -1,7 +1,32 @@
 *{
 	all: unset;
+	font-size: 16px;
+	font-weight: bold;
 }
 
-.topleftbar {
-	background-color: red;
+.topbar {
+	background-color: rgba($color: #FFF, $alpha: 0.8);
+}
+
+.topbar_container {
+	background-color: rgba($color: #000, $alpha: 0.8);
+	padding: 2px 2px;
+}
+
+.left {
+	margin: 2px 2px;
+}
+
+.middle {
+	margin: 2px 2px;
+}
+
+.right {
+	margin: 2px 2px;
+}
+
+.container {
+	background-color: rgba($color: #000, $alpha: 0.8);
+	border-radius: 10px;
+	padding: 1px 10px;
 }

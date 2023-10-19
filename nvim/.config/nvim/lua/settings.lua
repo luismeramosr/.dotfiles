@@ -16,9 +16,6 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
--- Enable break indent
-vim.o.breakindent = true
-
 -- Save undo history
 vim.o.undofile = true
 
@@ -42,6 +39,12 @@ vim.o.termguicolors = true
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.smarttab = false
+vim.o.expandtab = true
+
+-- Enable break indent
+vim.o.breakindent = true
 
 vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h15" }
 

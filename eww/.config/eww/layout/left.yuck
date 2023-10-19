@@ -1,0 +1,7 @@
+(defwidget left [class]
+  (box :orientation "horizontal"
+       :halign "start"
+       :class class
+    (workspaces)
+  )
+)

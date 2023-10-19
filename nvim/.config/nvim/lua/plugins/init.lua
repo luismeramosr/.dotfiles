@@ -204,6 +204,15 @@ require("lazy").setup({
         version = "*",
         opts = require("plugins.config.toggleterm"),
     },
+    {
+        "nvim-neorg/neorg",
+        build = ":Neorg sync-parsers",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("plugins.config.neorg")
+        end,
+    },
+    "elkowar/yuck.vim",
     -- {
     -- 	"dreamsofcode-io/ChatGPT.nvim",
     -- 	event = "VeryLazy",

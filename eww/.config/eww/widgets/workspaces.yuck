@@ -1,0 +1,6 @@
+(defwidget workspaces []
+  (box :orientation "horizontal"
+       :class "container workspaces"
+    "Workspaces"
+  )
+)

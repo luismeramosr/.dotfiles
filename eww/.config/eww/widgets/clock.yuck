@@ -1,0 +1,6 @@
+(defwidget clock []
+  (box :orientation "horizontal"
+       :class "container clock"
+    time
+  )
+)

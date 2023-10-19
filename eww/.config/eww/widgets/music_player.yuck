@@ -1,0 +1,6 @@
+(defwidget music_player []
+  (box :orientation "horizontal"
+       :halign "start"
+       :class "container music_player"
+    "Music player")
+)

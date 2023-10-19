@@ -1,0 +1,8 @@
+(defwidget right []
+  (box :orientation "horizontal"
+       :halign "end"
+       :class "right"
+    (music_player)
+    (system_tray)
+  )
+)
