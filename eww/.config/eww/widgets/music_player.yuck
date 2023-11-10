@@ -1,6 +1,22 @@
 (defwidget music_player []
   (box :orientation "horizontal"
        :halign "start"
-       :class "container music_player"
-    "Music player")
+       :class "music_player"
+    (button :onclick "audtool playlist-reverse"
+      (label :text ""
+             :class "mp_control mp_previous"
+      )
+    )
+    (button :onclick { playing ? "eww update playing=false && audtool playback-pause" : "eww update playing=true && audtool playback-play"}
+      (label :text { playing ? "" : ""}
+             :class { playing ? "mp_pause" : "mp_play"}
+      )
+    )
+    (button :onclick "audtool playlist-advance"
+      (label :text ""
+             :class "mp_control"
+      )
+    )
+  )
 )
+

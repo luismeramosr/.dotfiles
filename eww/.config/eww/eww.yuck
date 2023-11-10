@@ -3,6 +3,7 @@
               :initial "initial-value"  ; optional, defaults to poll at startup
               :run-while time-visible   ; optional, defaults to 'true'
   `date +%H:%M`)
+(defvar playing false)
 
 ;; Layout
 (include "./layout/left.yuck")

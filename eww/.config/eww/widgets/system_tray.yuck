@@ -2,6 +2,8 @@
   (box :orientation "horizontal"
        :halign "end"
        :class "container system_tray"
-    "System Tray"
+    (label :text "  System Tray"
+           :class "st_cpu"
+    )
   )
 )
