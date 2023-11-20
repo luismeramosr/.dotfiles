@@ -66,14 +66,24 @@ require("lazy").setup({
             },
         },
     },
+    -- Color schemes
     {
-        -- Color theme
         "Shatur/neovim-ayu",
-        priority = 1000,
         config = function()
             vim.cmd.colorscheme("ayu-mirage")
         end,
     },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+    },
+    {
+        "folke/tokyonight.nvim",
+        name = "tokyonight",
+        lazy = false,
+        opts = {},
+    },
+    -- End of color schemes
     {
         -- Set lualine as statusline
         "nvim-lualine/lualine.nvim",
@@ -85,12 +95,10 @@ require("lazy").setup({
     {
         -- Add indentation guides even on blank lines
         "lukas-reineke/indent-blankline.nvim",
-        -- Enable `lukas-reineke/indent-blankline.nvim`
-        -- See `:help indent_blankline.txt`
-        opts = {
-            char = "┊",
-            show_trailing_blankline_indent = false,
-        },
+        main = "ibl",
+        config = function()
+            require("plugins.config.indent-blankline")
+        end,
     },
     -- "gc" to comment visual regions/lines
     { "numToStr/Comment.nvim", opts = {} },
@@ -224,7 +232,14 @@ require("lazy").setup({
         config = function()
             require("telescope").load_extension("goimpl")
         end,
-    }
+    },
+    {
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
     -- {
     -- 	"dreamsofcode-io/ChatGPT.nvim",
     -- 	event = "VeryLazy",

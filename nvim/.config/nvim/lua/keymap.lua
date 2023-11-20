@@ -64,7 +64,7 @@ kmap('n', '<leader>m', ':Startify<CR>', { desc = "Opens the startify dashboard",
 kmap('n', '<C-w>', ":Bdelete<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 
 ------ TERMINAL MAPS ------
-kmap('t', 'jk', '<C-\\><C-N>', { desc = "Scapes when pressing jk in terminal mode", silent = true })
+kmap('t', 'JK', '<C-\\><C-N>', { desc = "Scapes when pressing jk in terminal mode", silent = true })
 kmap('t', '<C-h>', '<C-\\><C-N><C-w>h', { desc = "Moves to the buffer on the left", silent = true })
 kmap('t', '<C-j>', '<C-\\><C-N><C-w>j', { desc = "Moves to the buffer on the bottom", silent = true })
 kmap('t', '<C-k>', '<C-\\><C-N><C-w>k', { desc = "Moves to the buffer on the top", silent = true })
@@ -79,3 +79,5 @@ end, { desc = "Changes the current root node", silent = true })
 
 
 kmap('n', '<leader>im', [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]], { desc = "Opens telescope to find and select an interface to implement", noremap=true, silent=true})
+
+kmap('n', '<leader>gg', ':LazyGit<CR>', { desc = "Opens LazyGit", noremap=true, silent=true })

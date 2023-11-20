@@ -37,24 +37,29 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
+-- Indenting settings
+local indent_width = 4
+vim.o.tabstop = indent_width
+vim.o.softtabstop = indent_width
+vim.o.shiftwidth = indent_width
 vim.o.smarttab = false
 vim.o.expandtab = true
 
 -- Enable break indent
 vim.o.breakindent = true
 
-vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h15" }
+vim.opt.guifont = { "Cascadia Mono", ":h15" }
 
 vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.o.hidden = true
 
-vim.g.neovide_transparency = 0.9
-
 -- For neorg fixes
 vim.o.conceallevel = 2
 vim.o.shell = "/bin/fish"
+
+if vim.g.neovide == true then
+    -- vim.g.neovide_fullscreen = true
+    vim.g.neovide_transparency = 1
+end
