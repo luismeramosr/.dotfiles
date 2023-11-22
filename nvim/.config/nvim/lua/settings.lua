@@ -48,7 +48,7 @@ vim.o.expandtab = true
 -- Enable break indent
 vim.o.breakindent = true
 
-vim.opt.guifont = { "Cascadia Mono", ":h15" }
+vim.opt.guifont = { "JetBrainsMono NF", ":h15" }
 
 vim.o.splitbelow = true
 vim.o.splitright = true
