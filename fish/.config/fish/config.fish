@@ -4,12 +4,14 @@ if status is-interactive
   set --export ANDROID /home/Android;
   set --export ANDROID_HOME $ANDROID/Sdk;
   set --export CHROME_EXECUTABLE /usr/bin/brave;
+  set --export GOPATH ~/go;
   set --export jupyter /opt/anaconda/bin/jupyter;
   set -gx PATH $ANDROID_HOME/tools $PATH;
   set -gx PATH $ANDROID_HOME/tools/bin $PATH;
   set -gx PATH $ANDROID_HOME/platform-tools $PATH;
   set -gx PATH $ANDROID_HOME/emulator $PATH;
   set -gx PATH /opt/flutter/bin/ $PATH;
+  set -gx PATH $GOPATH/bin $PATH;
   set -gx PATH ~/.cargo/bin $PATH;
   set -gx PATH ~/.yarn/bin $PATH;
   set -gx PATH ~/.local/bin $PATH;
@@ -180,8 +182,3 @@ alias jctl 'journalctl -p 3 -xb'
 
 # Recent installed packages
 alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
-
-## Run fastfetch if session is interactive
-if status --is-interactive && type -q fastfetch
-   fastfetch --load-config dr460nized
-end
