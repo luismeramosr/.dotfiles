@@ -3,7 +3,7 @@ local lsp = require("plugins.config.lsp")
 
 rt.setup({
   tools = {
-    reload_workspace_from_cargo_toml = false,
+    reload_workspace_from_cargo_toml = true,
     inlay_hints = {
       -- automatically set inlay hints (type hints)
       -- default: true
