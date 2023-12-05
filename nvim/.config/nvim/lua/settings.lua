@@ -48,7 +48,7 @@ vim.o.expandtab = true
 -- Enable break indent
 vim.o.breakindent = true
 
-vim.opt.guifont = { "MonaspiceAr NF", ":h18" }
+vim.opt.guifont = { "MonaspiceAr Nerd Font", ":h15" }
 
 vim.o.splitbelow = true
 vim.o.splitright = true

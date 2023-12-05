@@ -144,6 +144,12 @@ require("lazy").setup({
         end,
     },
     {
+        "windwp/nvim-ts-autotag",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+    {
         -- File tree
         "nvim-tree/nvim-tree.lua",
         dependencies = {
