@@ -6,7 +6,7 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-local path_to_startup_directory = "/home/luisr/Software"
+local path_to_startup_directory = "/home/luisr/Documents/Software"
 
 local vim_enter_group = vim.api.nvim_create_augroup("vim_enter_group", { clear = true })
 

@@ -116,7 +116,7 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             -- Enable telescope fzf native, if installed
-            require("telescope").load_extension("fzf")
+            pcall(require("telescope").load_extension, "fzf")
             require("plugins.config.telescope")
         end,
     },
