@@ -55,8 +55,8 @@ local servers = {
   rust_analyzer = {},
   -- tsserver = {},
   taplo = {},
-  typescript_language_server = {},
-  tailwindcss_language_server = {},
+  tsserver = {},
+  tailwindcss = {},
 
   lua_ls = {
     Lua = {
