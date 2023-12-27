@@ -81,14 +81,14 @@ mason_lspconfig.setup {
 }
 
 local border = {
-  { "╭", "FloatBorder" },
-  { "─",  "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│",  "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─",  "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│",  "FloatBorder" },
+  { "", "FloatBorder" }, -- Top left
+  { "",  "FloatBorder" }, -- Top
+  { "", "FloatBorder" }, -- Top right
+  { "",  "FloatBorder" }, -- Right
+  { "", "FloatBorder" }, -- Bottom right
+  { "",  "FloatBorder" }, -- Bottom
+  { "", "FloatBorder" }, -- Bottom left
+  { "",  "FloatBorder" }, -- Left
 }
 
 -- LSP settings (for overriding per client)

@@ -44,7 +44,7 @@ rt.setup({
           enable = true
         },
         checkOnSave = {
-          command = "check"
+          command = "clippy"
         },
         cargo = {
           buildScripts = {

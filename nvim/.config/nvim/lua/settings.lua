@@ -48,8 +48,6 @@ vim.o.expandtab = true
 -- Enable break indent
 vim.o.breakindent = true
 
-vim.opt.guifont = { "MonaspiceAr Nerd Font", ":h15" }
-
 vim.o.splitbelow = true
 vim.o.splitright = true
 
@@ -60,6 +58,8 @@ vim.o.conceallevel = 2
 vim.o.shell = "/bin/fish"
 
 if vim.g.neovide == true then
-    -- vim.g.neovide_fullscreen = true
+    vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h15" }
     vim.g.neovide_transparency = 1
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_cursor_animate_command_line = true
 end

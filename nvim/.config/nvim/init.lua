@@ -1,3 +1,4 @@
+Util = require("util")
 require("settings")
 require("keymap")
 require("diagnostics")
