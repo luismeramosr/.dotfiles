@@ -34,7 +34,6 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
--- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
 -- Indenting settings
@@ -59,7 +58,6 @@ vim.o.shell = "/bin/fish"
 
 if vim.g.neovide == true then
     vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h15" }
-    vim.g.neovide_transparency = 1
     vim.g.neovide_cursor_animate_in_insert_mode = true
     vim.g.neovide_cursor_animate_command_line = true
 end

@@ -1,10 +1,6 @@
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
@@ -84,11 +80,11 @@ local border = {
   { "", "FloatBorder" }, -- Top left
   { "",  "FloatBorder" }, -- Top
   { "", "FloatBorder" }, -- Top right
-  { "",  "FloatBorder" }, -- Right
+  { " ",  "FloatBorder" }, -- Right
   { "", "FloatBorder" }, -- Bottom right
   { "",  "FloatBorder" }, -- Bottom
   { "", "FloatBorder" }, -- Bottom left
-  { "",  "FloatBorder" }, -- Left
+  { " ",  "FloatBorder" }, -- Left
 }
 
 -- LSP settings (for overriding per client)

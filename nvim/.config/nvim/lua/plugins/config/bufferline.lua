@@ -1,5 +1,7 @@
-local diagnostics_indicator = function(count, level, diagnostics_dict, context)
-    local icon = level:match("error") and " " or " "
+---@diagnostic disable: missing-fields
+local diagnostics_indicator = function(count, level)
+    local icons = require("icons")
+    local icon = level:match("error") and icons.diagnostics.error or icons.diagnostics.hint
     return " " .. icon .. count
 end
 

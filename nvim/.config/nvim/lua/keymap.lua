@@ -2,7 +2,7 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 function kmap(mode, key, action, opts)
-  vim.keymap.set(mode, key, action, opts)
+    vim.keymap.set(mode, key, action, opts)
 end
 
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -13,11 +13,11 @@ vim.g.maplocalleader = ' '
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
 })
 
 ----- GENERAL ------
@@ -72,12 +72,22 @@ kmap('t', '<C-l>', '<C-\\><C-N><C-w>l', { desc = "Moves to the buffer on the rig
 
 kmap('n', '<C-t>', ':ToggleTerm direction=horizontal name=Terminal<CR>', { desc = "Toggles the terminal view" })
 
-kmap('n', '<C-c><C-d>', function ()
+kmap('n', '<C-c><C-d>', function()
     local api = require("nvim-tree.api")
     api.tree.change_root_to_node()
 end, { desc = "Changes the current root node", silent = true })
 
 
-kmap('n', '<leader>im', [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]], { desc = "Opens telescope to find and select an interface to implement", noremap=true, silent=true})
+kmap('n', '<leader>im', [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
+    { desc = "Opens telescope to find and select an interface to implement", noremap = true, silent = true })
 
-kmap('n', '<leader>gg', ':LazyGit<CR>', { desc = "Opens LazyGit", noremap=true, silent=true })
+kmap('n', '<leader>gg', ':LazyGit<CR>', { desc = "Opens LazyGit", noremap = true, silent = true })
+
+kmap('n', '<leader>t', ':TodoTelescope<CR>', { desc = "List all todo comments", noremap = true, silent = true })
+kmap('n', '{', function()
+    require("todo-comments").jump_prev()
+end, { desc = "Go to previous todo comment", noremap = true, silent = true })
+kmap('n', '}', function()
+    require("todo-comments").jump_next()
+end, { desc = "Go to next todo comment", noremap = true, silent = true })
+

@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-fields
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 return require('nvim-treesitter.configs').setup {

@@ -62,16 +62,7 @@ require("lazy").setup({
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
         "lewis6991/gitsigns.nvim",
-        opts = {
-            -- See `:help gitsigns.txt`
-            signs = {
-                add = { text = "+" },
-                change = { text = "~" },
-                delete = { text = "_" },
-                topdelete = { text = "‾" },
-                changedelete = { text = "~" },
-            },
-        },
+        opts = require("plugins.config.gitsigns"),
     },
     -- Color schemes
     {
@@ -125,8 +116,6 @@ require("lazy").setup({
     -- requirements installed.
     {
         "nvim-telescope/telescope-fzf-native.nvim",
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
         build = "make",
         cond = function()
             return vim.fn.executable("make") == 1
@@ -194,22 +183,6 @@ require("lazy").setup({
             require("plugins.config.popui")
         end,
     },
-    -- {
-    -- 	"rcarriga/nvim-notify",
-    -- 	opts = require("plugins.config.notify").opts,
-    -- 	config = function()
-    -- 		vim.notify = require("notify")
-    -- 	end,
-    -- },
-    -- {
-    -- 	"mrded/nvim-lsp-notify",
-    -- 	dependencies = {
-    -- 		"rcarriga/nvim-notify",
-    -- 	},
-    -- 	config = function()
-    -- 		require("lsp-notify").setup({})
-    -- 	end,
-    -- },
     {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
@@ -253,6 +226,15 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
     },
+    {
+        "stevearc/dressing.nvim",
+        opts = {},
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = require("plugins.config.todo")
+    }
     -- {
     -- 	"dreamsofcode-io/ChatGPT.nvim",
     -- 	event = "VeryLazy",

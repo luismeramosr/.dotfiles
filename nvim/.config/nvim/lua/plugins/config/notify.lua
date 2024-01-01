@@ -1,7 +1,7 @@
 local M = {}
 
 M.opts = {
-  timeout = 2500,
+  timeout = 3000,
   render = "default",
   stages = "fade",
   max_height = function()

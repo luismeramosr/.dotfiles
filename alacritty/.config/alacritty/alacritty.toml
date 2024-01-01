@@ -1,0 +1,41 @@
+live_config_reload = true
+
+[env]
+TERM = "tmux-256color"
+
+[font]
+size = 16
+
+[font.bold]
+family = "MonaspiceAr NF"
+style = "ExtraBold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.normal]
+family = "MonaspiceAr NF"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[shell]
+program = "/usr/bin/fish"
+
+[window]
+decorations = "none"
+dynamic_title = false
+opacity = 0.8
+startup_mode = "Windowed"
+title = "Terminal"
+
+[window.dimensions]
+columns = 110
+lines = 24
+
+[window.padding]
+x = 0
+y = 0

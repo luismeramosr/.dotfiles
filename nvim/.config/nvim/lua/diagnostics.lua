@@ -7,10 +7,12 @@ local sign = function(opts)
   })
 end
 
-sign({name = 'DiagnosticSignError', text = ''})
-sign({name = 'DiagnosticSignWarn', text = ''})
-sign({name = 'DiagnosticSignHint', text = ''})
-sign({name = 'DiagnosticSignInfo', text = ''})
+local signs = require("icons").diagnostics
+
+sign({name = 'DiagnosticSignError', text = signs.error})
+sign({name = 'DiagnosticSignWarn', text = signs.warn})
+sign({name = 'DiagnosticSignHint', text = signs.hint})
+sign({name = 'DiagnosticSignInfo', text = signs.info})
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -19,7 +21,7 @@ vim.diagnostic.config({
     underline = true,
     severity_sort = true,
     float = {
-        border = 'rounded',
+        border = 'none',
         source = 'always',
         header = '',
         prefix = '',
