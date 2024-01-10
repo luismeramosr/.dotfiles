@@ -7,7 +7,7 @@ TERM = "tmux-256color"
 size = 16
 
 [font.bold]
-family = "MonaspiceAr NF"
+family = "JetBrainsMono NerdFont"
 style = "ExtraBold"
 
 [font.glyph_offset]
@@ -15,7 +15,7 @@ x = 0
 y = 0
 
 [font.normal]
-family = "MonaspiceAr NF"
+family = "JetBrainsMono NerdFont"
 style = "Regular"
 
 [font.offset]
