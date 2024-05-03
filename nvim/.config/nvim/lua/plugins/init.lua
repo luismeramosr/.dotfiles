@@ -27,6 +27,9 @@ require("lazy").setup({
     {
         -- LSP Configuration & Plugins
         "neovim/nvim-lspconfig",
+        config = function()
+            require("java").setup()
+        end,
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
             "williamboman/mason.nvim",
@@ -198,14 +201,6 @@ require("lazy").setup({
         version = "*",
         opts = require("plugins.config.toggleterm"),
     },
-    {
-        "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("plugins.config.neorg")
-        end,
-    },
     "elkowar/yuck.vim",
     {
         "edolphin-ydf/goimpl.nvim",
@@ -234,6 +229,27 @@ require("lazy").setup({
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = require("plugins.config.todo")
+    },
+    {
+        'nvim-java/nvim-java',
+        dependencies = {
+            'nvim-java/lua-async-await',
+            'nvim-java/nvim-java-core',
+            'nvim-java/nvim-java-test',
+            'nvim-java/nvim-java-dap',
+            'MunifTanjim/nui.nvim',
+            'neovim/nvim-lspconfig',
+            'mfussenegger/nvim-dap',
+            {
+                'williamboman/mason.nvim',
+                opts = {
+                    registries = {
+                        'github:nvim-java/mason-registry',
+                        'github:mason-org/mason-registry',
+                    },
+                },
+            }
+        },
     }
     -- {
     -- 	"dreamsofcode-io/ChatGPT.nvim",
