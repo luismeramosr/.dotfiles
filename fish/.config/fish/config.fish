@@ -31,11 +31,6 @@ if test -d ~/.local/bin
     end
 end
 
-## Starship prompt
-if status --is-interactive
-   source ("/usr/bin/starship" init fish --print-full-init | psub)
-end
-
 # Fish command history
 function history
     builtin history --show-time='%F %T '
@@ -59,3 +54,8 @@ alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show o
 
 # Get fastest mirrors
 alias mirrors 'sudo reflector -f 100 --sort rate --protocol http --protocol https --connection-timeout 3 --download-timeout 3 --threads 12 --verbose --save /etc/pacman.d/mirrorlist'
+
+## Starship prompt
+if status --is-interactive
+   source ("/usr/bin/starship" init fish --print-full-init | psub)
+end

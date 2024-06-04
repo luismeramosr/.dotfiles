@@ -27,25 +27,16 @@ require("lazy").setup({
     {
         -- LSP Configuration & Plugins
         "neovim/nvim-lspconfig",
-        config = function()
+        config = function ()
             require("java").setup()
         end,
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
             { 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
-
-            -- Additional lua configuration, makes nvim stuff amazing!
-            {
-                "folke/neodev.nvim",
-                config = function()
-                    require("plugins.config.neodev")
-                end,
-            },
         },
     },
     {
@@ -189,7 +180,7 @@ require("lazy").setup({
     {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
-        version = "v3.*",
+        version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("plugins.config.bufferline")
@@ -231,10 +222,31 @@ require("lazy").setup({
         opts = require("plugins.config.todo")
     },
     {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+        }
+    },
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
+        config = function()
+            require("telescope").load_extension("ui-select")
+        end
+    },
+    {
         'nvim-java/nvim-java',
         dependencies = {
             'nvim-java/lua-async-await',
             'nvim-java/nvim-java-core',
+            'nvim-java/nvim-java-refactor',
             'nvim-java/nvim-java-test',
             'nvim-java/nvim-java-dap',
             'MunifTanjim/nui.nvim',
@@ -251,20 +263,6 @@ require("lazy").setup({
             }
         },
     }
-    -- {
-    -- 	"dreamsofcode-io/ChatGPT.nvim",
-    -- 	event = "VeryLazy",
-    -- 	dependencies = {
-    -- 		"MunifTanjim/nui.nvim",
-    -- 		"nvim-lua/plenary.nvim",
-    -- 		"nvim-telescope/telescope.nvim"
-    -- 	},
-    -- 	config = function()
-    -- 		require("chatgpt").setup({
-    -- 			async_api_key_cmd = "pass show api/tokens/openai",
-    -- 		})
-    -- 	end
-    -- },
 }, {})
 
 require("plugins.config.lsp")

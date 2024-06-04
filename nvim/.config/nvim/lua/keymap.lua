@@ -58,10 +58,10 @@ kmap('n', '<A-h>', '<C-w><', { desc = "Decreases split width", silent = true })
 kmap('n', 'H', ":BufferLineCyclePrev<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 kmap('n', 'L', ":BufferLineCycleNext<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 
-kmap('n', '<leader>q', ':q<CR>', { desc = "Closes the current window", silent = true })
-kmap('n', '<leader>f', ':Format<CR>', { desc = "Formats the current buffer", silent = true })
+kmap('n', '<leader>x', ':q<CR>', { desc = "Closes the current window", silent = true })
+kmap('n', '<leader>fm', ':Format<CR>', { desc = "Formats the current buffer", silent = true })
 kmap('n', '<leader>m', ':Startify<CR>', { desc = "Opens the startify dashboard", silent = true })
-kmap('n', '<C-w>', ":Bdelete<CR>", { desc = "Close the current tab ", silent = true, remap = true })
+kmap('n', '<leader>q', ":Bdelete<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 
 ------ TERMINAL MAPS ------
 kmap('t', 'JK', '<C-\\><C-N>', { desc = "Scapes when pressing jk in terminal mode", silent = true })

@@ -19,18 +19,21 @@ require('telescope').setup({
     },
 })
 
--- See `:help telescope.builtin`
-kmap('n', '<leader>b', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
--- kmap('n', '<leader>/', function()
---   -- You can pass additional configuration to telescope to change theme, layout, etc.
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end, { desc = '[/] Fuzzily search in current buffer' })
+require("telescope").load_extension("ui-select")
 
-kmap('n', '<C-p>', function()
+-- See `:help telescope.builtin`
+kmap('n', '<leader>fo', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
+kmap('n', '<leader>fz', require('telescope.builtin').live_grep, { desc = 'Fuzzy find' })
+kmap('n', '<leader>fb', function()
+    -- You can pass additional configuration to telescope to change theme, layout, etc.
+    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+    })
+end, { desc = '[/] Fuzzily search in current buffer' })
+
+kmap('n', '<leader>ff', function()
     require("telescope.builtin").find_files()
 end, { desc = 'Search files' })
-kmap('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = 'Search help' })
-kmap('n', '<leader>a', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics' })
+kmap('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Search help' })
+kmap('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = 'Search diagnostics' })
