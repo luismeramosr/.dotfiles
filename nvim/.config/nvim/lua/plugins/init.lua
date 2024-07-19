@@ -14,6 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
     -- NOTE: First, some plugins that don't require any configuration
 
@@ -27,7 +28,7 @@ require("lazy").setup({
     {
         -- LSP Configuration & Plugins
         "neovim/nvim-lspconfig",
-        config = function ()
+        config = function()
             require("java").setup()
         end,
         dependencies = {
@@ -262,6 +263,13 @@ require("lazy").setup({
                 },
             }
         },
+    },
+    {
+        'stevearc/conform.nvim',
+        opts = {},
+        config = function()
+            require("plugins.config.conform")
+        end
     }
 }, {})
 

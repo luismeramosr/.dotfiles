@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 kmap({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-kmap('n', '<C-s>', ':wa<CR>', { desc = "Saves the current buffer", silent = true })
+kmap('n', '<C-s>', ':silent wa<CR>', { desc = "Saves the current buffer", silent = true })
 kmap('i', 'jk', '<ESC>', { desc = "Scapes when pressing jk in insert mode", silent = true })
 
 -- Remap for dealing with word wrap
@@ -59,7 +59,7 @@ kmap('n', 'H', ":BufferLineCyclePrev<CR>", { desc = "Close the current tab ", si
 kmap('n', 'L', ":BufferLineCycleNext<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 
 kmap('n', '<leader>x', ':q<CR>', { desc = "Closes the current window", silent = true })
-kmap('n', '<leader>fm', ':Format<CR>', { desc = "Formats the current buffer", silent = true })
+-- kmap('n', '<leader>fm', ':Format<CR>', { desc = "Formats the current buffer", silent = true })
 kmap('n', '<leader>m', ':Startify<CR>', { desc = "Opens the startify dashboard", silent = true })
 kmap('n', '<leader>q', ":Bdelete<CR>", { desc = "Close the current tab ", silent = true, remap = true })
 
@@ -90,4 +90,3 @@ end, { desc = "Go to previous todo comment", noremap = true, silent = true })
 kmap('n', '}', function()
     require("todo-comments").jump_next()
 end, { desc = "Go to next todo comment", noremap = true, silent = true })
-
