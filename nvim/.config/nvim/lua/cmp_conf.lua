@@ -2,6 +2,7 @@
 -- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local borders = require("icons").borders.single
 
 local kind_icons = require("icons").kinds
 
@@ -14,7 +15,8 @@ cmp.setup({
         end,
     },
     window = {
-        completion = cmp.config.window.bordered({ border = { '', '', '', ' ', '', '', '', ' ' } }),
+        completion = cmp.config.window.bordered({ border = { borders.top_left, borders.top, borders.top_right, borders.right, borders.bottom_right, borders.bottom, borders.bottom_left, borders.left } }),
+        documentation = cmp.config.window.bordered({ border = { borders.top_left, borders.top, borders.top_right, borders.right, borders.bottom_right, borders.bottom, borders.bottom_left, borders.left } }),
     },
     mapping = cmp.mapping.preset.insert {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -49,8 +51,8 @@ cmp.setup({
             vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
             -- Source
             vim_item.menu = ({
-                buffer = "[Buffer]",
                 nvim_lsp = "[LSP]",
+                buffer = "[Buffer]",
                 luasnip = "[LuaSnip]",
                 nvim_lua = "[Lua]",
                 latex_symbols = "[LaTeX]",
@@ -60,6 +62,7 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
+        { name = 'buffer' },
         { name = 'luasnip' },
     },
 })

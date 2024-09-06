@@ -54,6 +54,7 @@ local servers = {
     tsserver = {},
     tailwindcss = {},
     jdtls = {},
+    buf = {},
 
     lua_ls = {
         Lua = {
@@ -77,15 +78,17 @@ mason_lspconfig.setup {
     ensure_installed = vim.tbl_keys(servers),
 }
 
+local borders = require("icons").borders.single
+
 local border = {
-    { "",  "FloatBorder" }, -- Top left
-    { "",  "FloatBorder" }, -- Top
-    { "",  "FloatBorder" }, -- Top right
-    { " ", "FloatBorder" }, -- Right
-    { "",  "FloatBorder" }, -- Bottom right
-    { "",  "FloatBorder" }, -- Bottom
-    { "",  "FloatBorder" }, -- Bottom left
-    { " ", "FloatBorder" }, -- Left
+    { borders.top_left,     "FloatBorder" }, -- Top left
+    { borders.top,          "FloatBorder" }, -- Top
+    { borders.top_right,    "FloatBorder" }, -- Top right
+    { borders.right,        "FloatBorder" }, -- Right
+    { borders.bottom_right, "FloatBorder" }, -- Bottom right
+    { borders.bottom,       "FloatBorder" }, -- Bottom
+    { borders.bottom_left,  "FloatBorder" }, -- Bottom left
+    { borders.left,         "FloatBorder" }, -- Left
 }
 
 -- LSP settings (for overriding per client)

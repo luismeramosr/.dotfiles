@@ -16,13 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-    -- NOTE: First, some plugins that don't require any configuration
-
-    -- Git related plugins
-    "tpope/vim-fugitive",
-    "tpope/vim-rhubarb",
-    -- Detect tabstop and shiftwidth automatically
-    "tpope/vim-sleuth",
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
     {
@@ -102,8 +95,7 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             -- Enable telescope fzf native, if installed
-            pcall(require("telescope").load_extension, "fzf")
-            require("plugins.config.telescope")
+            require("plugins.config.telescope-config")
         end,
     },
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -173,12 +165,6 @@ require("lazy").setup({
         end,
     },
     {
-        "hood/popui.nvim",
-        config = function()
-            require("plugins.config.popui")
-        end,
-    },
-    {
         "akinsho/bufferline.nvim",
         event = "VeryLazy",
         version = "*",
@@ -225,9 +211,13 @@ require("lazy").setup({
     {
         "folke/noice.nvim",
         event = "VeryLazy",
+        version = "4.4.7",
         opts = {
             -- add any options here
         },
+        config = function()
+            require("plugins.config.noice")
+        end,
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
@@ -239,7 +229,7 @@ require("lazy").setup({
             "nvim-telescope/telescope.nvim",
         },
         config = function()
-            require("telescope").load_extension("ui-select")
+            require("plugins.config.ui-select")
         end
     },
     {
@@ -270,7 +260,13 @@ require("lazy").setup({
         config = function()
             require("plugins.config.conform")
         end
-    }
+    },
+    {
+        "David-Kunz/gen.nvim",
+        config = function()
+            require("plugins.config.gen")
+        end
+    },
 }, {})
 
 require("plugins.config.lsp")

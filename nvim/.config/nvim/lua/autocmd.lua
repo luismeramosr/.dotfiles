@@ -1,5 +1,5 @@
 function _G.set_terminal_keymaps()
-    local opts = { buffer = 0 }
+    local opts = { buffer = 0, silent = true }
     vim.keymap.set('t', '<C-t>', [[<Cmd>ToggleTerm<CR>]], opts)
 end
 

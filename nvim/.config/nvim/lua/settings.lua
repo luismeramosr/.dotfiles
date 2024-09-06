@@ -61,3 +61,6 @@ if vim.g.neovide == true then
     vim.g.neovide_cursor_animate_in_insert_mode = true
     vim.g.neovide_cursor_animate_command_line = true
 end
+
+vim.g.copilot_proxy = 'http://localhost:11435'
+vim.g.copilot_proxy_strict_ssl = false
