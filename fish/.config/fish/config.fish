@@ -17,11 +17,17 @@ set -gx PATH ~/.local/bin $PATH;
 
 set fish_greeting
 set -x SHELL /usr/bin/fish
+set -x PODMAN_IGNORE_CGROUPSV1_WARNING 1
 
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile
   source ~/.fish_profile
+end
+
+# Custom user functions
+if test -f ~/.config/fish/functions.fish
+  source ~/.config/fish/functions.fish
 end
 
 # Add ~/.local/bin to PATH
