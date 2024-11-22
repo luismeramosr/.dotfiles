@@ -47,14 +47,13 @@ end
 local servers = {
     -- clangd = {},
     gopls = {},
-    -- pyright = {},
     rust_analyzer = {},
-    -- tsserver = {},
     taplo = {},
     ts_ls = {},
     tailwindcss = {},
     jdtls = {},
     pyright = {},
+    angular = {},
     marksman = {},
 
     lua_ls = {

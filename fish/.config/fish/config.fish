@@ -14,6 +14,7 @@ set -gx PATH $GOPATH/bin $PATH;
 set -gx PATH ~/.cargo/bin $PATH;
 set -gx PATH ~/.yarn/bin $PATH;
 set -gx PATH ~/.local/bin $PATH;
+set -gx PATH ~/.bun/bin $PATH;
 
 set fish_greeting
 set -x SHELL /usr/bin/fish
