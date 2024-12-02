@@ -91,8 +91,3 @@ end, { desc = "Go to previous todo comment", noremap = true, silent = true })
 kmap('n', '}', function()
     require("todo-comments").jump_next()
 end, { desc = "Go to next todo comment", noremap = true, silent = true })
-
------- Gen.nvim ------
-kmap('n', '<leader>gg', ':Gen<CR>', { desc = "Opens Gen available prompts", noremap = true, silent = true })
-kmap('v', '<leader>gg', ':Gen<CR>', { desc = "Opens Gen available prompts", noremap = true, silent = true })
-kmap('n', '<leader>gc', ':Gen Chat<CR>', { desc = "Opens Gen chat", noremap = true, silent = true })

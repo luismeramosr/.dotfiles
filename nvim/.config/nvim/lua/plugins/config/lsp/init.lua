@@ -53,7 +53,7 @@ local servers = {
     tailwindcss = {},
     jdtls = {},
     pyright = {},
-    angular = {},
+    angularls = {},
     marksman = {},
 
     lua_ls = {

@@ -275,8 +275,8 @@ require("lazy").setup({
     {
         "yetone/avante.nvim",
         event = "VeryLazy",
-        lazy = false,
-        version = false, -- set this if you want to always pull the latest change
+        lazy = true,
+        version = "0.0.12", -- set this if you want to always pull the latest change
         opts = require("plugins.config.avante"),
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = "make",

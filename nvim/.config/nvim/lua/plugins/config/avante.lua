@@ -5,8 +5,8 @@ return {
     vendors = {
         ---@type AvanteProvider
         lmstudio = {
-            ["local"] = true,
-            endpoint = "127.0.0.1:1234/v1",
+            api_key = '',
+            endpoint = "http://127.0.0.1:1234/v1",
             model = "deepseek-coder-v2-lite-instruct",
             parse_curl_args = function(opts, code_opts)
                 return {
