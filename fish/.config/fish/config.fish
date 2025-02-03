@@ -5,6 +5,7 @@ set --export ANDROID_HOME $ANDROID;
 set --export CHROME_EXECUTABLE /usr/bin/brave;
 set --export GOPATH ~/go;
 set --export jupyter /opt/anaconda/bin/jupyter;
+set --export GOPROXY on;
 set -gx PATH $ANDROID_HOME/tools $PATH;
 set -gx PATH $ANDROID_HOME/tools/bin $PATH;
 set -gx PATH $ANDROID_HOME/platform-tools $PATH;
@@ -19,6 +20,9 @@ set -gx PATH ~/.bun/bin $PATH;
 set fish_greeting
 set -x SHELL /usr/bin/fish
 set -x PODMAN_IGNORE_CGROUPSV1_WARNING 1
+set -x GO111MODULE auto
+set -x LM_STUDIO_API_BASE http://localhost:1234/v1
+set -x LM_STUDIO_API_KEY NULL
 
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in

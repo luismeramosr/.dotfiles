@@ -22,21 +22,34 @@ require("lazy").setup({
         -- LSP Configuration & Plugins
         "neovim/nvim-lspconfig",
         config = function()
-            require("java").setup()
+            -- require("java").setup()
         end,
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "saghen/blink.cmp",
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
             { 'j-hui/fidget.nvim', tag = "legacy", opts = {} },
         },
     },
     {
-        -- Autocompletion
-        "hrsh7th/nvim-cmp",
-        dependencies = { "hrsh7th/cmp-nvim-lsp", "saadparwaiz1/cmp_luasnip", "L3MON4D3/LuaSnip" },
+        'saghen/blink.cmp',
+        -- optional: provides snippets for the snippet source
+        dependencies = 'rafamadriz/friendly-snippets',
+
+        -- use a release tag to download pre-built binaries
+        version = '*',
+        -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+        -- build = 'cargo build --release',
+        -- If you use nix, you can build from source using latest nightly rust with:
+        -- build = 'nix run .#build-plugin',
+
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = require("plugins.config.blink"),
+        opts_extend = { "sources.default" }
     },
     {
         "L3MON4D3/LuaSnip",
@@ -160,8 +173,8 @@ require("lazy").setup({
         config = function(_, opts)
             require("nvim-autopairs").setup(opts)
             -- setup cmp for autopairs
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            -- require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
     },
     {
@@ -232,28 +245,28 @@ require("lazy").setup({
             require("plugins.config.ui-select")
         end
     },
-    {
-        'nvim-java/nvim-java',
-        dependencies = {
-            'nvim-java/lua-async-await',
-            'nvim-java/nvim-java-core',
-            'nvim-java/nvim-java-refactor',
-            'nvim-java/nvim-java-test',
-            'nvim-java/nvim-java-dap',
-            'MunifTanjim/nui.nvim',
-            'neovim/nvim-lspconfig',
-            'mfussenegger/nvim-dap',
-            {
-                'williamboman/mason.nvim',
-                opts = {
-                    registries = {
-                        'github:nvim-java/mason-registry',
-                        'github:mason-org/mason-registry',
-                    },
-                },
-            }
-        },
-    },
+    -- {
+    --     'nvim-java/nvim-java',
+    --     dependencies = {
+    --         'nvim-java/lua-async-await',
+    --         'nvim-java/nvim-java-core',
+    --         'nvim-java/nvim-java-refactor',
+    --         'nvim-java/nvim-java-test',
+    --         'nvim-java/nvim-java-dap',
+    --         'MunifTanjim/nui.nvim',
+    --         'neovim/nvim-lspconfig',
+    --         'mfussenegger/nvim-dap',
+    --         {
+    --             'williamboman/mason.nvim',
+    --             opts = {
+    --                 registries = {
+    --                     'github:nvim-java/mason-registry',
+    --                     'github:mason-org/mason-registry',
+    --                 },
+    --             },
+    --         }
+    --     },
+    -- },
     {
         'stevearc/conform.nvim',
         opts = {},

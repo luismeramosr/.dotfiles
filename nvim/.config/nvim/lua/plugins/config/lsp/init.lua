@@ -51,11 +51,11 @@ local servers = {
     taplo = {},
     ts_ls = {},
     tailwindcss = {},
+    svelte = {},
     jdtls = {},
     pyright = {},
     angularls = {},
     marksman = {},
-
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
@@ -65,8 +65,7 @@ local servers = {
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local borders = require("icons").borders.single
 

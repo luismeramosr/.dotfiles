@@ -9,7 +9,5 @@ require("keymap")
 require("diagnostics")
 -- Load plugins for enhanced functionality
 require("plugins")
--- Configure completion settings with cmp
-require("cmp_conf")
 -- Define custom autocmds to enhance behavior
 require("autocmd")
