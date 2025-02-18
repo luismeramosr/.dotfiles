@@ -59,7 +59,10 @@ require("lazy").setup({
         end
     },
     -- Useful plugin to show you pending keybinds.
-    { "folke/which-key.nvim",  opts = {} },
+    {
+        "folke/which-key.nvim",
+        opts = {}
+    },
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
         "lewis6991/gitsigns.nvim",
@@ -284,51 +287,17 @@ require("lazy").setup({
             require("plugins.config.markdown")
         end
     },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",     opts = {} },
     {
-        "yetone/avante.nvim",
-        event = "VeryLazy",
-        lazy = true,
-        version = "0.0.12", -- set this if you want to always pull the latest change
-        opts = require("plugins.config.avante"),
-        -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-        build = "make",
-        -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+        "olimorris/codecompanion.nvim",
+        config = function()
+            require("plugins.config.codecompanion")
+        end,
         dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "stevearc/dressing.nvim",
             "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
-            --- The below dependencies are optional,
-            "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-            "zbirenbaum/copilot.lua",      -- for providers='copilot'
-            {
-                -- support for image pasting
-                "HakonHarnes/img-clip.nvim",
-                event = "VeryLazy",
-                opts = {
-                    -- recommended settings
-                    default = {
-                        embed_image_as_base64 = false,
-                        prompt_for_file_name = false,
-                        drag_and_drop = {
-                            insert_mode = true,
-                        },
-                        -- required for Windows users
-                        use_absolute_path = true,
-                    },
-                },
-            },
-            {
-                -- Make sure to set this up properly if you have lazy=true
-                'MeanderingProgrammer/render-markdown.nvim',
-                opts = {
-                    file_types = { "markdown", "Avante" },
-                },
-                ft = { "markdown", "Avante" },
-            },
+            "nvim-treesitter/nvim-treesitter",
         },
-    }
+    },
 }, {})
 
 require("plugins.config.lsp")
