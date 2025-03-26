@@ -1,6 +1,6 @@
 # Commands to run in interactive sessions can go here
 set --export JAVA_HOME /lib/jvm/default;
-set --export ANDROID ~/.Android;
+set --export ANDROID ~/.Android/Sdk;
 set --export ANDROID_HOME $ANDROID;
 set --export CHROME_EXECUTABLE /usr/bin/brave;
 set --export GOPATH ~/go;

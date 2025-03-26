@@ -1,7 +1,7 @@
 require("codecompanion").setup({
     display = {
         action_palette = {
-            width = 95,
+            width = 45,
             height = 10,
             prompt = "Prompt ",                     -- Prompt used for interactive LLM calls
             provider = "telescope",                 -- default|telescope|mini_pick
@@ -10,23 +10,28 @@ require("codecompanion").setup({
                 show_default_prompt_library = true, -- Show the default prompt library in the action palette?
             },
         },
+        chat = {
+            window = {
+                width = 0.25
+            }
+        }
     },
     strategies = {
         chat = {
-            adapter = "lm_studio_chat"
+            adapter = "ollama"
         },
         inline = {
-            adapter = "lm_studio_completions"
+            adapter = "ollama_completions"
         },
     },
     adapters = {
-        lm_studio_chat = function()
+        ollama = function()
             return require("codecompanion.adapters").extend("openai_compatible", {
-                name = "lm_studio_chat",
-                formatted_name = "LM Studio Chat",
+                name = "ollama",
+                formatted_name = "Ollama",
                 env = {
-                    url = "http://localhost:1234",
-                    model = "deepseek-r1-race",
+                    url = "http://localhost:11434",
+                    model = "qwen2.5-coder:14b",
                 },
                 schema = {
                     model = {
@@ -34,17 +39,18 @@ require("codecompanion").setup({
                         mapping = "parameters",
                         type = "enum",
                         desc = "Description of the model to use",
-                        default = "deepseek-r1-distill-qwen-14b",
+                        default = "qwen2.5-coder:14b",
                     },
                 },
             })
         end,
-        lm_studio_completions = function()
+        ollama_completions = function()
             return require("codecompanion.adapters").extend("openai_compatible", {
-                name = "lm_studio_completions",
-                formatted_name = "LM Studio Completions",
+                name = "ollama_completions",
+                formatted_name = "Ollama inline completions",
                 env = {
-                    url = "http://localhost:1234",
+                    url = "http://localhost:11434",
+                    model = "qwen2.5-coder:14b"
                 },
                 schema = {
                     model = {
@@ -52,7 +58,7 @@ require("codecompanion").setup({
                         mapping = "parameters",
                         type = "enum",
                         desc = "Description of the model to use",
-                        default = "qwen2.5-coder-14b-instruct",
+                        default = "qwen2.5-coder:14b",
                     },
                 },
             })
