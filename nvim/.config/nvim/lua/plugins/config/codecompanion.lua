@@ -1,4 +1,4 @@
-require("codecompanion").setup({
+return {
     display = {
         action_palette = {
             width = 45,
@@ -64,4 +64,4 @@ require("codecompanion").setup({
             })
         end,
     }
-})
+}

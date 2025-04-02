@@ -1,35 +1,19 @@
 return {
-    ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-    provider = "lmstudio",                  -- Recommend using Claude
-    auto_suggestions_provider = "lmstudio", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-    vendors = {
-        ---@type AvanteProvider
-        lmstudio = {
-            api_key = '',
-            endpoint = "http://127.0.0.1:1234/v1",
-            model = "deepseek-coder-v2-lite-instruct",
-            parse_curl_args = function(opts, code_opts)
-                return {
-                    url = opts.endpoint .. "/chat/completions",
-                    headers = {
-                        ["Accept"] = "application/json",
-                        ["Content-Type"] = "application/json",
-                    },
-                    body = {
-                        model = opts.model,
-                        messages = require("avante.providers").copilot.parse_messages(code_opts), -- you can make your own message, but this is very advanced
-                        max_tokens = 4096,
-                        stream = true,
-                    },
-                }
-            end,
-            parse_response_data = function(data_stream, event_state, opts)
-                require("avante.providers").copilot.parse_response(data_stream, event_state, opts)
-            end,
+    provider = "ollama",
+    auto_suggestions_provider = "ollama",    -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+    ollama = {
+        endpoint = "http://127.0.0.1:11434", -- Note that there is no /v1 at the end.
+        model = "qwen2.5-coder:14b",         -- your desired model (or use gpt-4o, etc.)
+        timeout = 30000,                     -- Timeout in milliseconds, increase this for reasoning models
+        temperature = 0.7,
+        max_completion_tokens = 8192,        -- Increase this to include reasoning tokens (for reasoning models)
+        options = {
+            num_ctx = 10240,
         },
+        --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
     },
     behaviour = {
-        auto_suggestions = false, -- Experimental stage
+        auto_suggestions = true, -- Experimental stage
         auto_set_highlight_group = true,
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = false,
@@ -70,9 +54,10 @@ return {
     hints = { enabled = true },
     windows = {
         ---@type "right" | "left" | "top" | "bottom"
-        position = "right",   -- the position of the sidebar
-        wrap = true,          -- similar to vim.o.wrap
-        width = 30,           -- default % based on available width
+        position = "right", -- the position of the sidebar
+        wrap = true,        -- similar to vim.o.wrap
+        width = 25,         -- default % based on available width
+        border = true,
         sidebar_header = {
             enabled = true,   -- true, false to enable/disable the header
             align = "center", -- left, center, right for title
