@@ -6,19 +6,19 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- OR setup with some options
-require("nvim-tree").setup {
-  sort_by = "case_sensitive",
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-    custom = {
-      "target",
-      "node_modules",
+require("nvim-tree").setup({
+    sort_by = "case_sensitive",
+    renderer = {
+        group_empty = true,
     },
-  },
-  view = {
-    side = "right",
-  },
-}
+    filters = {
+        dotfiles = true,
+        custom = {
+            "target",
+            "node_modules",
+        },
+    },
+    view = {
+        side = "right",
+    },
+})
