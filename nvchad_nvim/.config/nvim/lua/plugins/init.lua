@@ -38,5 +38,42 @@ return {
       "MunifTanjim/nui.nvim",
     },
   },
-  { "folke/which-key.nvim",  enabled = true, lazy = false }, -- disable a default nvchad plugin
+  { "folke/which-key.nvim", enabled = true, lazy = false }, -- disable a default nvchad plugin
+  {
+    -- File tree
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require "plugins.config.nvim-tree"
+    end,
+  },
+  {
+    -- Dashboard
+    "mhinz/vim-startify",
+    lazy = false,
+    config = function()
+      require "plugins.config.vim_startify"
+    end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { "<leader>gi", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
+  },
 }

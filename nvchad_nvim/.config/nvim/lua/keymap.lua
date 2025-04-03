@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 kmap("n", ";", ":", { desc = "CMD enter command mode" })
 kmap("i", "jk", "<ESC>")
 kmap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-kmap("n", "<C-s>", ":silent wa<CR>", { desc = "Saves the current buffer", silent = true })
+kmap("n", "<C-s>", ":silent wa<cr>", { desc = "Saves the current buffer", silent = true })
 kmap("i", "jk", "<ESC>", { desc = "Scapes when pressing jk in insert mode", silent = true })
 
 -- Remap for dealing with word wrap
@@ -28,7 +28,7 @@ kmap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 kmap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- NvimTreeToggle
-kmap("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggles nvim tree", silent = true })
+kmap("n", "<leader>e", ":NvimTreeToggle<cr>", { desc = "Toggles nvim tree", silent = true })
 
 -- Diagnostic
 kmap("n", "<A-{>", vim.diagnostic.get_prev, { desc = "Go to previous diagnostic message" })
@@ -58,9 +58,9 @@ kmap("n", "L", function()
   require("nvchad.tabufline").next()
 end, { desc = "Close the current tab ", silent = true, remap = true })
 
-kmap("n", "<leader>x", ":q<CR>", { desc = "Closes the current window", silent = true })
--- kmap('n', '<leader>fm', ':Format<CR>', { desc = "Formats the current buffer", silent = true })
-kmap("n", "<leader>m", ":Startify<CR>", { desc = "Opens the startify dashboard", silent = true })
+kmap("n", "<leader>x", ":q<cr>", { desc = "Closes the current window", silent = true })
+-- kmap('n', '<leader>fm', ':Format<cr>', { desc = "Formats the current buffer", silent = true })
+kmap("n", "<leader>m", ":Startify<cr>", { desc = "Opens the startify dashboard", silent = true })
 kmap("n", "<leader>q", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "Close the current tab ", silent = true, remap = true })
@@ -75,7 +75,7 @@ kmap("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Moves to the buffer on the rig
 kmap(
   "n",
   "<C-t>",
-  ":ToggleTerm direction=horizontal name=Terminal<CR>",
+  ":ToggleTerm direction=horizontal name=Terminal<cr>",
   { desc = "Toggles the terminal view", silent = true }
 )
 
@@ -84,10 +84,7 @@ kmap("n", "<C-c><C-d>", function()
   api.tree.change_root_to_node()
 end, { desc = "Changes the current root node", silent = true })
 
------ LazyGit ------
-kmap("n", "<leader>gi", ":LazyGit<CR>", { desc = "Opens LazyGit", noremap = true, silent = true })
-
-kmap("n", "<leader>t", ":TodoTelescope<CR>", { desc = "List all todo comments", noremap = true, silent = true })
+kmap("n", "<leader>t", ":TodoTelescope<cr>", { desc = "List all todo comments", noremap = true, silent = true })
 kmap("n", "{", function()
   require("todo-comments").jump_prev()
 end, { desc = "Go to previous todo comment", noremap = true, silent = true })
@@ -97,8 +94,8 @@ end, { desc = "Go to next todo comment", noremap = true, silent = true })
 
 ----- Telescope ------
 -- See `:help telescope.builtin`
-kmap("n", "<leader>fo", "<cmd>Telescope buffers<CR>", { desc = "Find existing buffers" })
-kmap("n", "<leader>fz", "<cmd>Telescope live_grep<CR>", { desc = "Fuzzy find" })
+kmap("n", "<leader>fo", "<cmd>Telescope buffers<cr>", { desc = "Find existing buffers" })
+kmap("n", "<leader>fz", "<cmd>Telescope live_grep<cr>", { desc = "Fuzzy find" })
 kmap("n", "<leader>fb", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
@@ -107,19 +104,19 @@ kmap("n", "<leader>fb", function()
   })
 end, { desc = "[/] Fuzzily search in current buffer" })
 
-kmap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Search in project files" })
+kmap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Search in project files" })
 kmap(
   "n",
   "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>",
   { desc = "Search in all files" }
 )
-kmap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Search help" })
-kmap("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", { desc = "Search diagnostics" })
+kmap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Search help" })
+kmap("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { desc = "Search diagnostics" })
 kmap(
   "n",
   "<leader>im",
-  [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
+  [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<cr>]],
   { desc = "Opens telescope to find and select an interface to implement", noremap = true, silent = true }
 )
 

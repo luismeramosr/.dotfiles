@@ -1,5 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
+vim.g.maplocalleader = ""
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -12,10 +13,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "plugins.config.lazy"
-
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 -- load plugins
 require("lazy").setup({
@@ -33,9 +30,9 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-require "settings"
-require "nvchad.autocmds"
+require("settings")
+require("nvchad.autocmds")
 
 vim.schedule(function()
-  require "keymap"
+  require("keymap")
 end)
