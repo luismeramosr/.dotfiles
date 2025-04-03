@@ -5,7 +5,7 @@ set --export ANDROID_HOME $ANDROID;
 set --export CHROME_EXECUTABLE /usr/bin/brave;
 set --export GOPATH ~/go;
 set --export jupyter /opt/anaconda/bin/jupyter;
-set --export GOPROXY on;
+set --export GOPROXY https://proxy.golang.org;
 set -gx PATH $ANDROID_HOME/tools $PATH;
 set -gx PATH $ANDROID_HOME/tools/bin $PATH;
 set -gx PATH $ANDROID_HOME/platform-tools $PATH;
