@@ -1,4 +1,15 @@
-local signs = require("icons").git
+local signs = {
+    added = "",
+    modified = "",
+    removed = "",
+    renamed = "➜",
+    untracked = "",
+    ignored = "",
+    unstaged = "U",
+    staged = "",
+    conflict = "",
+    deleted = "",
+}
 
 require("gitsigns").setup({
     signs = signs,

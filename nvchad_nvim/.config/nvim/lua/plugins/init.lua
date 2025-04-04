@@ -10,7 +10,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            require("plugins.config.lspconfig")
+            require("plugins.config.lsp")
         end,
     },
     {
@@ -43,7 +43,7 @@ return {
         -- File tree
         "nvim-tree/nvim-tree.lua",
         dependencies = {
-            "nvim-tree/nvim-web-devicons",
+            "echasnovski/mini.icons",
         },
         config = function()
             require("plugins.config.nvim-tree")
@@ -80,4 +80,55 @@ return {
             require("plugins.config.gitsigns")
         end,
     },
+    {
+        "windwp/nvim-ts-autotag",
+        lazy = true,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+    {
+        -- Rust tools
+        "simrat39/rust-tools.nvim",
+        after = "nvim-lspconfig",
+        config = function()
+            require("plugins.config.lsp.rust_tools")
+        end,
+    },
+    -- {
+    --     "windwp/nvim-autopairs",
+    --     lazy = false,
+    --     opts = {
+    --         fast_wrap = {},
+    --         disable_filetype = { "TelescopePrompt", "vim" },
+    --     },
+    --     config = function(_, opts)
+    --         require("nvim-autopairs").setup(opts)
+    --     end,
+    -- },
+    -- {
+    --     "saghen/blink.cmp",
+    --     lazy = false,
+    --     -- optional: provides snippets for the snippet source
+    --     dependencies = {
+    --         "rafamadriz/friendly-snippets",
+    --     },
+    --     -- use a release tag to download pre-built binaries
+    --     version = "*",
+    --     -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+    --     -- build = 'cargo build --release',
+    --     -- If you use nix, you can build from source using latest nightly rust with:
+    --     -- build = 'nix run .#build-plugin',
+    --
+    --     ---@module 'blink.cmp'
+    --     ---@type blink.cmp.Config
+    --     opts = require("plugins.config.blink"),
+    --     opts_extend = { "sources.default" },
+    -- },
+    ------ Disabled ------
+    -- { "hrsh7th/nvim-cmp", enabled = false },
+    -- {
+    --     "neovim/nvim-lspconfig",
+    --     enabled = false,
+    -- },
 }

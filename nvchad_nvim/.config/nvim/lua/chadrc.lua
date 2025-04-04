@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
     theme = "kanagawa",
-
+    transparency = false,
     -- hl_override = {
     -- 	Comment = { italic = true },
     -- 	["@comment"] = { italic = true },
@@ -16,6 +16,18 @@ M.base46 = {
 
 -- M.nvdash = { load_on_startup = true }
 M.ui = {
+    cmp = {
+        lspkind_text = false,
+        style = "atom_colored",
+        border = "round",
+        format_colors = {
+            tailwind = true
+        }
+    },
+    statusline = {
+        theme = "default",
+        separator_style = "round"
+    },
     tabufline = {
         lazyload = false,
         order = { "buffers", "tabs", "btns" },
