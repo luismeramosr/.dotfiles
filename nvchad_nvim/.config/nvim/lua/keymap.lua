@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 kmap("n", ";", ":", { desc = "CMD enter command mode" })
 kmap("i", "jk", "<ESC>")
 kmap({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-kmap("n", "<C-s>", ":wa<cr>", { desc = "Saves the current buffer", silent = true })
+kmap("n", "<C-s>", ":silent wa<cr>", { desc = "Saves the current buffer", silent = true })
 kmap("i", "jk", "<ESC>", { desc = "Scapes when pressing jk in insert mode", silent = true })
 
 -- Remap for dealing with word wrap

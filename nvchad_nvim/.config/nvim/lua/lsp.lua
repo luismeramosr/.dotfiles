@@ -1,17 +1,17 @@
 local servers = {
-    html = {},
-    cssls = {},
-    gopls = {},
-    rust_analyzer = {},
-    taplo = {},
-    ts_ls = {},
-    tailwindcss = {},
-    svelte = {},
-    jdtls = {},
-    pyright = {},
-    angularls = {},
-    marksman = {},
-    lua_ls = require("plugins.config.lsp.lua_ls"),
+    "lua_ls",
+    "html",
+    "cssls",
+    "gopls",
+    "rust_analyzer",
+    "taplo",
+    "ts_ls",
+    "tailwindcss",
+    "svelte",
+    "jdtls",
+    "pyright",
+    "angularls",
+    "marksman",
 }
 
 local map = vim.keymap.set
@@ -39,15 +39,10 @@ local on_attach = function(_, bufnr)
     unset("n", "grr", {})
 end
 
-local nvlsp = require("nvchad.configs.lspconfig")
-local lspconfig = require("lspconfig")
-
 -- lsps with default config
-for lsp, settings in pairs(servers) do
-    lspconfig[lsp].setup({
-        on_attach = on_attach,
-        on_init = nvlsp.on_init,
-        capabilities = nvlsp.capabilities,
-        settings = settings,
-    })
-end
+vim.lsp.config("*", {
+    capabilities = require("blink.cmp").get_lsp_capabilities(),
+    root_markers = { ".git" },
+})
+
+vim.lsp.enable(servers)

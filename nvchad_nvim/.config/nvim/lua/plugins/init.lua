@@ -8,12 +8,6 @@ return {
         end,
     },
     {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("plugins.config.lsp")
-        end,
-    },
-    {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
@@ -95,40 +89,40 @@ return {
             require("plugins.config.lsp.rust_tools")
         end,
     },
-    -- {
-    --     "windwp/nvim-autopairs",
-    --     lazy = false,
-    --     opts = {
-    --         fast_wrap = {},
-    --         disable_filetype = { "TelescopePrompt", "vim" },
-    --     },
-    --     config = function(_, opts)
-    --         require("nvim-autopairs").setup(opts)
-    --     end,
-    -- },
-    -- {
-    --     "saghen/blink.cmp",
-    --     lazy = false,
-    --     -- optional: provides snippets for the snippet source
-    --     dependencies = {
-    --         "rafamadriz/friendly-snippets",
-    --     },
-    --     -- use a release tag to download pre-built binaries
-    --     version = "*",
-    --     -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-    --     -- build = 'cargo build --release',
-    --     -- If you use nix, you can build from source using latest nightly rust with:
-    --     -- build = 'nix run .#build-plugin',
-    --
-    --     ---@module 'blink.cmp'
-    --     ---@type blink.cmp.Config
-    --     opts = require("plugins.config.blink"),
-    --     opts_extend = { "sources.default" },
-    -- },
+    {
+        "windwp/nvim-autopairs",
+        lazy = false,
+        opts = {
+            fast_wrap = {},
+            disable_filetype = { "TelescopePrompt", "vim" },
+        },
+        config = function(_, opts)
+            require("nvim-autopairs").setup(opts)
+        end,
+    },
+    {
+        "saghen/blink.cmp",
+        lazy = false,
+        -- optional: provides snippets for the snippet source
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+        },
+        -- use a release tag to download pre-built binaries
+        version = "*",
+        -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+        -- build = 'cargo build --release',
+        -- If you use nix, you can build from source using latest nightly rust with:
+        -- build = 'nix run .#build-plugin',
+
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = require("plugins.config.blink"),
+        opts_extend = { "sources.default" },
+    },
     ------ Disabled ------
-    -- { "hrsh7th/nvim-cmp", enabled = false },
-    -- {
-    --     "neovim/nvim-lspconfig",
-    --     enabled = false,
-    -- },
+    { "hrsh7th/nvim-cmp", enabled = false },
+    {
+        "neovim/nvim-lspconfig",
+        enabled = false,
+    },
 }

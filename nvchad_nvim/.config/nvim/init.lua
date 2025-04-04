@@ -31,6 +31,7 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require("settings")
+require("lsp")
 require("diagnostics")
 require("nvchad.autocmds")
 
