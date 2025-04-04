@@ -126,3 +126,8 @@ local unset = vim.keymap.del
 
 unset("n", "<leader>fw", {})
 unset("n", "<tab>", {})
+-- Removing useless keymaps
+unset("n", "gra", {})
+unset("n", "gri", {})
+unset("n", "grn", {})
+unset("n", "grr", {})

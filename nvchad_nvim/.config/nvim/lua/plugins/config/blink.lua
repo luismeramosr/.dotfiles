@@ -1,4 +1,5 @@
 local icons = require("nvchad.icons.lspkind")
+dofile(vim.g.base46_cache .. "cmp")
 
 return {
     enabled = function()
@@ -32,29 +33,32 @@ return {
     appearance = {
         -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
+        use_nvim_cmp_as_default = true,
         nerd_font_variant = "mono",
     },
 
     completion = {
         menu = {
-            winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
+            -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
             border = "none",
             draw = {
+                padding = { 0, 1}, -- Padding only on the right side
                 columns = {
                     { "kind_icon", gap = 1 },
-                    { "label", "kind", gap = 1 },
+                    { "label", "kind" },
                 },
                 components = {
                     kind_icon = {
                         ellipsis = false,
                         text = function(ctx)
-                            return icons[ctx.kind]
-                        end,
-                        -- Set the highlight priority to 20000 to beat the cursorline's default priority of 10000
-                        highlight = function(ctx)
-                            return { { group = ctx.kind_hl, priority = 20000 } }
+                            return " " .. icons[ctx.kind] .. ctx.icon_gap .. " "
                         end,
                     },
+                    kind = {
+                        highlight = function(ctx)
+                            return ""
+                        end
+                    }
                 },
             },
         },
@@ -62,6 +66,9 @@ return {
             auto_show = true,
             auto_show_delay_ms = 0,
             window = { border = "none" },
+        },
+        ghost_text = {
+            enabled = true
         },
     },
     signature = { window = { border = "none" } },

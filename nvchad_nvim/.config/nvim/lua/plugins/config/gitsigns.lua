@@ -1,18 +1,13 @@
 local signs = {
-    added = "",
-    modified = "",
-    removed = "",
-    renamed = "➜",
-    untracked = "",
-    ignored = "",
-    unstaged = "U",
-    staged = "",
-    conflict = "",
-    deleted = "",
+    add = { text = "" },
+    change = { text = "" },
+    delete = { text = "" },
+    untracked = { text = "" },
 }
 
 require("gitsigns").setup({
     signs = signs,
+    signs_staged = signs,
     on_attach = function(bufnr)
         local gitsigns = require("gitsigns")
 
