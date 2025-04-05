@@ -68,7 +68,7 @@ return {
             window = { border = "none" },
         },
         ghost_text = {
-            enabled = true
+            enabled = false
         },
     },
     signature = { window = { border = "none" } },

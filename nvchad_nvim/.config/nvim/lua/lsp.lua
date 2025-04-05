@@ -16,6 +16,11 @@ local servers = {
 
 local map = vim.keymap.set
 
+local mason_lspconfig = require("mason-lspconfig")
+mason_lspconfig.setup({
+    ensure_installed = servers
+})
+
 -- lsps with default config
 vim.lsp.config("*", {
     capabilities = require("blink.cmp").get_lsp_capabilities(),

@@ -82,14 +82,6 @@ return {
         },
     },
     {
-        -- Rust tools
-        "simrat39/rust-tools.nvim",
-        after = "nvim-lspconfig",
-        config = function()
-            require("plugins.config.lsp.rust_tools")
-        end,
-    },
-    {
         "windwp/nvim-autopairs",
         lazy = false,
         opts = {
@@ -119,6 +111,13 @@ return {
         opts = require("plugins.config.blink"),
         opts_extend = { "sources.default" },
     },
+	{
+		"akinsho/toggleterm.nvim",
+        lazy = false,
+		version = "*",
+		opts = require("plugins.config.toggleterm"),
+	},
+	"williamboman/mason-lspconfig.nvim",
     ------ Disabled ------
     { "hrsh7th/nvim-cmp", enabled = false },
     {

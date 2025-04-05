@@ -1,13 +1,18 @@
-local signs = {
-    add = { text = "" },
-    change = { text = "" },
-    delete = { text = "" },
-    untracked = { text = "" },
-}
+local signs = require("icons").git
 
 require("gitsigns").setup({
-    signs = signs,
-    signs_staged = signs,
+    signs = {
+        add = { text = signs.add },
+        change = { text = signs.change },
+        delete = { text = signs.delete },
+        untracked = { text = signs.untracked },
+    },
+    signs_staged = {
+        add = { text = signs.add },
+        change = { text = signs.change },
+        delete = { text = signs.delete },
+        untracked = { text = signs.untracked },
+    },
     on_attach = function(bufnr)
         local gitsigns = require("gitsigns")
 
