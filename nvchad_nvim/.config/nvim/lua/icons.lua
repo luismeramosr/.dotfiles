@@ -14,4 +14,16 @@ M.diagnostics = {
     info = " ",
 }
 
+M.terminal = {
+    os = "󰣇 "
+}
+
+M.misc = {
+    todo = " ",
+    fixme = " ",
+    warn = " ",
+    perf = "󰅒 ",
+    note = " ",
+}
+
 return M

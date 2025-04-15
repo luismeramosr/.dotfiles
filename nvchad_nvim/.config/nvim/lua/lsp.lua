@@ -12,14 +12,15 @@ local servers = {
     "pyright",
     "angularls",
     "marksman",
+    "hyperls"
 }
 
 local map = vim.keymap.set
 
 local mason_lspconfig = require("mason-lspconfig")
-mason_lspconfig.setup({
-    ensure_installed = servers
-})
+-- mason_lspconfig.setup({
+--     ensure_installed = servers
+-- })
 
 -- lsps with default config
 vim.lsp.config("*", {
@@ -40,8 +41,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "gr", "<cmd>Telescope lsp_references<CR>", description("go to references"))
         map("n", "<leader>D", vim.lsp.buf.type_definition, description("go to type definition"))
         map({ "n", "v" }, "J", vim.lsp.buf.code_action, description("Show code actions"))
-        map("n", "K", vim.lsp.buf.hover, description("show documentation"))
+        map("n", "K", vim.lsp.buf.hover, description("Show documentation"))
+        map("n", "D", function()
+            vim.diagnostic.open_float(nil, { focusable = true, focus = true })
+        end, description("Focus diagnostics window"))
         map("n", "<leader>rn", require("nvchad.lsp.renamer"), description("Rename"))
         map("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, description("show document symbols"))
+
+        vim.diagnostic.show()
+        require("nvim-autopairs").setup()
+        vim.cmd([[
+            autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = true, focus = false })
+        ]])
     end,
 })

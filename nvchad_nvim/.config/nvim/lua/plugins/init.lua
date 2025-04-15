@@ -52,20 +52,10 @@ return {
         end,
     },
     {
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        -- setting the keybinding for LazyGit with 'keys' is recommended in
-        -- order to load the plugin when the command is run for the first time
-        keys = {
-            { "<leader>gi", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-        },
+        "folke/snacks.nvim",
+        opts = require("plugins.config.snacks").opts,
+        keys = require("plugins.config.snacks").keys,
+        init = require("plugins.config.snacks").init,
     },
     {
         -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -111,15 +101,29 @@ return {
         opts = require("plugins.config.blink"),
         opts_extend = { "sources.default" },
     },
-	{
-		"akinsho/toggleterm.nvim",
+    {
+        "akinsho/toggleterm.nvim",
         lazy = false,
-		version = "*",
-		opts = require("plugins.config.toggleterm"),
-	},
-	"williamboman/mason-lspconfig.nvim",
+        version = "*",
+        opts = require("plugins.config.toggleterm"),
+    },
+    {
+        "nvzone/volt",
+        lazy = true
+    },
+    {
+        "nvzone/minty",
+        cmd = { "Shades", "Huefy" },
+    },
+    {
+        "folke/todo-comments.nvim",
+        cmd = { "TodoTelescope" },
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = require("plugins.config.todo"),
+    },
+    "williamboman/mason-lspconfig.nvim",
     ------ Disabled ------
-    { "hrsh7th/nvim-cmp", enabled = false },
+    { "hrsh7th/nvim-cmp",     enabled = false },
     {
         "neovim/nvim-lspconfig",
         enabled = false,

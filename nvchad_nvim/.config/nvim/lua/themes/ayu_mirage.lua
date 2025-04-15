@@ -43,7 +43,7 @@ M.base_16 = {
   base05 = "#CCCAC2", -- fg
   base06 = "#E6E1CF",
   base07 = "#F6F3E8",
-  base08 = "#F28779", -- variables
+  base08 = "#FFD173", -- variables
   base09 = "#FFDFB3", -- identifiers
   base0A = "#FFD173", -- functions
   base0B = "#D5FF80", -- strings
@@ -58,7 +58,7 @@ M.polish_hl = {
     ["@function"] = { fg = M.base_30.orange },
     ["@parameter"] = { fg = M.base_30.dark_purple },
     ["@keyword"] = { fg = M.base_30.yellow },
-    ["@type"] = { fg = M.base_30.purple },
+    ["@type"] = { fg = M.base_30.nord_blue },
     ["@string"] = { fg = M.base_30.green },
     ["@constant"] = { fg = M.base_30.purple },
     ["@comment"] = { fg = M.base_30.light_grey },

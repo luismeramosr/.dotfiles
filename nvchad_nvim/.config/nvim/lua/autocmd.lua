@@ -1,6 +1,6 @@
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0, silent = true }
-    vim.keymap.set('t', '<C-t>', [[<Cmd>ToggleTerm<CR>]], opts)
+    vim.keymap.set('t', '<C-t>', [[<cmd>ToggleTerm<cr>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
